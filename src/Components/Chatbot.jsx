@@ -50,7 +50,7 @@ const chatbotResponses = [
 const Chatbot = () => {
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([
-    { sender: "chatbot", text: "Hi there! I am your Verizon Phones Assistant." },
+    { sender: "chatbot", text: "Hi there 👋! I am your Verizon Phones Assistant." },
   ]);
 
   const handleUserInput = (event) => {
