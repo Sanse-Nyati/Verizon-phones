@@ -39,7 +39,7 @@ const chatbotResponses = [
   },
   {
     regex: /.*yeah|yes.*/i,
-    responses: ["First add your items to the cart, the navigate to your cart using the navbar and then press the blue button "Buy Now" then a pop-up will appear which you will enter your phone number and then a completion pop-up will be sent to your phone for the payment thereafter you willbe given a code that you will use to track your Order by pressing the blue button."],
+    responses: ["First add your items to the cart, the navigate to your cart using the navbar and then press the blue button Buy Now then a pop-up will appear which you will enter your phone number and then a completion pop-up will be sent to your phone for the payment thereafter you willbe given a code that you will use to track your Order by pressing the blue button."],
   },
   {
     regex: /.*/,
