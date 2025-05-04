@@ -3,11 +3,11 @@ import React, { useState } from "react";
 const chatbotResponses = [
   {
     regex: /hi|hello|good\s(morning|afternoon|evening)/i,
-    responses: ["Hello! How can I assist you today?", "Hi there, how can I help you?"],
+    responses: ["Hello 👋! How can I assist you today?", "Hi there, how can I help you?"],
   },
   {
     regex: /how are you/i,
-    responses: ["I'm doing great, thanks for asking!", "I'm good, how about you?"],
+    responses: ["I'm doing great 👍, thanks for asking!", "I'm good, how about you?"],
   },
   {
     regex: /.*phone|phones.*/i,
@@ -43,7 +43,7 @@ const chatbotResponses = [
   },
   {
     regex: /.*/,
-    responses: ["Sorry I didn't understand what you said!!"],
+    responses: ["Sorry 😔😔 I didn't understand what you said!!"],
   },
 ];
 
