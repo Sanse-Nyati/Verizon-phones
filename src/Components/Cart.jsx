@@ -160,7 +160,7 @@ const Cart = () => {
                       {success}
                       <br />
                       <strong>
-                        <a href="/orders">Track your order</a>
+                        <Link to="/orders" > Track your Order </Link>
                       </strong>
                     </div>
                   )}
