@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
