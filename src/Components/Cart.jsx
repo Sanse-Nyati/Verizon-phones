@@ -74,7 +74,7 @@ const Cart = () => {
     <div>
       <Navbar />
       <div className="container mt-5 pt-5">
-        <h3 className="text-primary mb-4">Your Cart</h3>
+        <h3 className="text-primary mb-4"> <b>YOUR CART</b> </h3>
 
         {cart.length === 0 ? (
           <div className="alert alert-warning text-center">Your cart is empty</div>
