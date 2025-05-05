@@ -11,7 +11,7 @@ const chatbotResponses = [
   },
   {
     regex: /.*phone|phones.*/i,
-    responses: ["We have a variety of phones: Tecno, Samsung, Oppo, iPhone, Infinix, Google Pixel"],
+    responses: ["We have a variety of phones: Tecno, Samsung, Oppo, iPhone, Infinix, Google Pixel which one do you want?"],
   },
   {
     regex: /.*Iphone/i,
