@@ -39,11 +39,6 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link text-Black">
-                <img src="images/circle.png" height="20px" alt="" /> <b>Contact</b>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/about" className="nav-link text-Black">
                 <img src="images/group.png" height="20px" alt="" /> <b>About Us</b>
               </Link>
