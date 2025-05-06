@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useCart } from "./CartContext";
+import { useCart } from "./CartContext"; // Import the CartContext
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
 
 const Cart = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart } = useCart(); // Use the cart state and functions from context
   const [showModal, setShowModal] = useState(false);
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState("");
@@ -99,7 +99,7 @@ const Cart = () => {
 
                     <button
                       className="btn btn-danger w-100 mb-2"
-                      onClick={() => removeFromCart(product.id)}
+                      onClick={() => removeFromCart(product.id)} // Remove item by id
                     >
                       Remove
                     </button>
@@ -161,7 +161,7 @@ const Cart = () => {
                       {success}
                       <br />
                       <strong>
-                        <Link to="/orders" > Track your Order </Link>
+                        <Link to="/orders">Track your Order</Link>
                       </strong>
                     </div>
                   )}
