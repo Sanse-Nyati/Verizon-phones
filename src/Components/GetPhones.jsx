@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+// import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import Carousel from "./Carousel";
 import Navbar from "./Navbar";
@@ -11,8 +12,8 @@ const GetProducts = () => {
   let [error, setError] = useState("");
   let [loading, setLoading] = useState(true); // ✅ Changed from string to boolean
   let [filteredProducts, setFilteredProducts] = useState([]);
-  let [successMessage, setSuccessMessage] = useState(""); // State for success message
 
+  // const navigate = useNavigate();
   const { addToCart } = useCart();
 
   const img_url = "https://Sanse.pythonanywhere.com/static/images/";
@@ -38,23 +39,12 @@ const GetProducts = () => {
     setFilteredProducts(filtered);
   };
 
-  // Function to handle adding to cart and showing success message
-  const handleAddToCart = (product) => {
-    addToCart(product);
-    setSuccessMessage("Product added successfully!");
-
-    // Hide the success message after 3 seconds
-    setTimeout(() => {
-      setSuccessMessage("");
-    }, 3000);
-  };
-
   useEffect(() => {
     GetProducts();
   }, []);
 
   return (
-    <div className="container Background-color:#000">
+    <div className="row">
       <Navbar />
       <Carousel />
 
@@ -80,25 +70,6 @@ const GetProducts = () => {
         </div>
       </div>
 
-      {/* Show success message above the cart */}
-      {successMessage && (
-        <div className="alert alert-success text-center my-3 fixed-top" style={{ 
-          zIndex: 9999, 
-          top: '20px', 
-          left: '50%', 
-          transform: 'translateX(-50%)',
-          padding: '15px 25px', 
-          borderRadius: '10px', 
-          background: 'linear-gradient(45deg, #6db3f2, #1e74f1)',
-          color: '#fff',
-          fontSize: '18px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
-          animation: 'fadeIn 0.5s ease-out' 
-        }}>
-          {successMessage}
-        </div>
-      )}
-
       {/* ✅ Only show products after loading completes */}
       {!loading && (
         <div className="row">
@@ -116,7 +87,7 @@ const GetProducts = () => {
                   <b className="text-warning">{product.product_cost} KSh</b>
                   <button
                     className="btn btn-warning mt-2 w-100"
-                    onClick={() => handleAddToCart(product)} // Call handleAddToCart
+                    onClick={() => addToCart(product)}
                   >
                     Add to Cart
                   </button>
