@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const chatbotResponses = [
   {
-    regex: /hi|hello|good\s(morning|afternoon|evening)/i,
+    regex: /hi|hello|hey|good\s(morning|afternoon|evening)/i,
     responses: ["Hello 👋! How can I assist you today?", "Hi there, how can I help you?"],
   },
   {
