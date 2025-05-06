@@ -81,9 +81,9 @@ const GetProducts = () => {
         </div>
       </div>
 
-      {/* Show success message */}
+      {/* Show success message above the cart */}
       {successMessage && (
-        <div className="alert alert-success text-center my-3">
+        <div className="alert alert-success text-center my-3 fixed-top" style={{ zIndex: 9999 }}>
           {successMessage}
         </div>
       )}
