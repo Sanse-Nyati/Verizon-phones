@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
 import Carousel from "./Carousel";
 import Navbar from "./Navbar";
@@ -55,7 +54,7 @@ const GetProducts = () => {
   }, []);
 
   return (
-    <div className="row">
+    <div className="container">
       <Navbar />
       <Carousel />
 
@@ -83,7 +82,19 @@ const GetProducts = () => {
 
       {/* Show success message above the cart */}
       {successMessage && (
-        <div className="alert alert-success text-center my-3 fixed-top" style={{ zIndex: 9999 }}>
+        <div className="alert alert-success text-center my-3 fixed-top" style={{ 
+          zIndex: 9999, 
+          top: '20px', 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          padding: '15px 25px', 
+          borderRadius: '10px', 
+          background: 'linear-gradient(45deg, #6db3f2, #1e74f1)',
+          color: '#fff',
+          fontSize: '18px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+          animation: 'fadeIn 0.5s ease-out' 
+        }}>
           {successMessage}
         </div>
       )}
