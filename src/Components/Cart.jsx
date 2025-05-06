@@ -14,16 +14,19 @@ const Cart = () => {
   const [error, setError] = useState("");
   const img_url = "https://Sanse.pythonanywhere.com/static/images/";
 
+  // Calculate total amount
   const calculateTotal = () => {
     return cart.reduce((acc, product) => acc + parseInt(product.product_cost), 0);
   };
 
+  // Handle the payment submission
   const submitPayment = async (e) => {
     e.preventDefault();
     setLoading("Processing Payment...");
     setSuccess("");
     setError("");
 
+    // Validate phone number format
     if (!/^(254)\d{9}$/.test(phone)) {
       setError("Invalid phone number format. Please enter a valid Kenyan number.");
       setLoading("");
@@ -56,7 +59,7 @@ const Cart = () => {
       localStorage.setItem(`order_${orderId}`, JSON.stringify(order));
 
       // Clear cart
-      cart.forEach((item) => removeFromCart(item.id));
+      cart.forEach((item) => removeFromCart(item.cartItemId)); // Corrected here to use cartItemId
 
       setSuccess(`Payment successful! Your Order ID is ${orderId}. You can now track your order.`);
     } catch (error) {
@@ -67,6 +70,7 @@ const Cart = () => {
     }
   };
 
+  // Handle the "Buy Now" modal show
   const handleBuyNow = () => {
     setShowModal(true);
   };
@@ -97,9 +101,10 @@ const Cart = () => {
                     </p>
                     <p className="text-warning fw-bold">{product.product_cost} KSh</p>
 
+                    {/* Fixed remove button, now using cartItemId */}
                     <button
                       className="btn btn-danger w-100 mb-2"
-                      onClick={() => removeFromCart(product.id)} // Remove item by id
+                      onClick={() => removeFromCart(product.cartItemId)} // Fixed to use cartItemId
                     >
                       Remove
                     </button>
