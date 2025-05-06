@@ -67,3 +67,71 @@ html, body {
   padding: 0;
   font-family: Arial, sans-serif;
 }
+/* Basic styling */
+.chatbot-container {
+  width: 350px;
+  max-width: 100%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.chatbox {
+  height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.chatbox .user {
+  text-align: right;
+  margin: 5px 0;
+}
+
+.chatbox .chatbot {
+  text-align: left;
+  margin: 5px 0;
+}
+
+.chatbox p {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #e1f5fe;
+  max-width: 80%;
+  display: inline-block;
+}
+
+.chatbox .user p {
+  background-color: #dcedc8;
+}
+
+.input-form {
+  display: flex;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ccc;
+}
+
+.input-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-form button {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.input-form button:hover {
+  background-color: #0056b3;
+}
