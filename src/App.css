@@ -78,9 +78,20 @@ body {
   margin: 0;
 }
 
+/* Overall body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7fc; /* Light background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
 /* Chatbot container */
 .chatbot-container {
-  width: 350px;
+  width: 500px; /* Increased width */
   max-width: 100%;
   height: 450px;
   border: 1px solid #ddd;
@@ -90,6 +101,13 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+/* If you want to make the chatbot even wider on larger screens, you can use media queries to set dynamic widths */
+@media (min-width: 768px) {
+  .chatbot-container {
+    width: 600px; /* Wider on larger screens */
+  }
 }
 
 /* Chatbox section */
