@@ -90,6 +90,7 @@ const Chatbot = () => {
     
     
     <div className="chatbot-container">
+      <Navbar />
       <div className="chatbox">
         {messages.map((msg, index) => (
           <div key={index} className={msg.sender}>
