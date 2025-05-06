@@ -54,7 +54,7 @@ const GetProducts = () => {
   }, []);
 
   return (
-    <div className="container Background-black">
+    <div className="container">
       <Navbar />
       <Carousel />
 
