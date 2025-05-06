@@ -78,18 +78,6 @@ html, body {
   justify-content: flex-end; /* Push the input box to the bottom */
   padding: 10px;
 }
-
-/* Chatbox container */
-.chatbox {
-  flex: 1;
-  overflow-y: auto;  /* Scrollable chatbox */
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;  /* Create space for the input form */
-}
-
 /* User's and chatbot's messages styles */
 .chatbox .user {
   text-align: right;
