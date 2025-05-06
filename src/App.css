@@ -135,33 +135,3 @@ html, body {
   background-color: #45a049;
 }
 
-/* Ensure the chat messages fit in a scrollable area */
-.chatbox p {
-  margin: 5px 0;
-}
-/* Success Message Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Style for the Success Message */
-.alert.alert-success {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9999;
-  padding: 15px 25px;
-  border-radius: 10px;
-  background: linear-gradient(45deg, #6db3f2, #1e74f1);
-  color: #fff;
-  font-size: 18px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-out;
-}
-
