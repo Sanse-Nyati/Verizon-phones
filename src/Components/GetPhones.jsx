@@ -12,8 +12,8 @@ const GetProducts = () => {
   let [error, setError] = useState("");
   let [loading, setLoading] = useState(true); // ✅ Changed from string to boolean
   let [filteredProducts, setFilteredProducts] = useState([]);
+  let [successMessage, setSuccessMessage] = useState(""); // State for success message
 
-  // const navigate = useNavigate();
   const { addToCart } = useCart();
 
   const img_url = "https://Sanse.pythonanywhere.com/static/images/";
@@ -37,6 +37,17 @@ const GetProducts = () => {
       product.product_name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredProducts(filtered);
+  };
+
+  // Function to handle adding to cart and showing success message
+  const handleAddToCart = (product) => {
+    addToCart(product);
+    setSuccessMessage("Product added successfully!");
+
+    // Hide the success message after 3 seconds
+    setTimeout(() => {
+      setSuccessMessage("");
+    }, 3000);
   };
 
   useEffect(() => {
@@ -70,6 +81,13 @@ const GetProducts = () => {
         </div>
       </div>
 
+      {/* Show success message */}
+      {successMessage && (
+        <div className="alert alert-success text-center my-3">
+          {successMessage}
+        </div>
+      )}
+
       {/* ✅ Only show products after loading completes */}
       {!loading && (
         <div className="row">
@@ -87,7 +105,7 @@ const GetProducts = () => {
                   <b className="text-warning">{product.product_cost} KSh</b>
                   <button
                     className="btn btn-warning mt-2 w-100"
-                    onClick={() => addToCart(product)}
+                    onClick={() => handleAddToCart(product)} // Call handleAddToCart
                   >
                     Add to Cart
                   </button>
