@@ -31,15 +31,12 @@ Shop smart. Shop with confidence. Only at Verizon Phones. </p>
                   {/* Quick Links */}
                   <h5 className="text-white text-center">Quick Links</h5>
                   <ul className="list-unstyled text-center">
-                      <li><Link to="#about" className="text-white">About Us</Link ></li>
-                      <li><Link to="#services" className="text-white">Our Services</Link ></li>
-                      <li><Link to="#contact" className="text-white">Contact</Link ></li>
+                      <li><Link to="/about" className="text-white">About Us</Link ></li>
+                     
                   </ul>
 
                   {/* Call to Action Button */}
-                  <div className="text-center mt-3">
-                      <Link to="#contact" className="btn btn-outline-warning">Get in Touch</Link >
-                  </div>
+                 
               </div>
 
               <div className="col-md-4">
