@@ -132,3 +132,49 @@ html, body {
 .input-form button:hover {
   background-color: #1565c0;
 }
+
+.glow-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.glow-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f00, #0ff, #0f0, #00f, #f0f, #ff0, #f00);
+  background-size: 400%;
+  animation: animateGlow 8s linear infinite;
+  z-index: 1;
+  filter: blur(12px);
+  border-radius: 20px;
+}
+
+@keyframes animateGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-content {
+  position: relative;
+  z-index: 2;
+  background: #1c1c1c;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  color: white;
+}
