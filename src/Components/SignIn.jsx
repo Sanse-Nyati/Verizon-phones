@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./SignIn.css"; // Make sure this path is correct in your project
 
 const SignIn = () => {
   let [username, setUsername] = useState("");
@@ -25,6 +26,7 @@ const SignIn = () => {
         "https://Sanse.pythonanywhere.com/api/signin",
         data
       );
+
       if (response.data.user) {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         navigate("/getphones");
@@ -39,7 +41,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="row justify-content-center mt-4">
+    <div className="center-wrapper">
       <h1 className="b text-danger text-center mb-4">Verizon Media</h1>
       <div className="glow-container">
         <div className="glow-border"></div>
