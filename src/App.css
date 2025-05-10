@@ -133,23 +133,43 @@ html, body {
   background-color: #1565c0;
 }
 
+/* Center the entire section */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #0f0f0f; /* dark background for contrast */
+}
+
+/* Container for glowing effect */
 .glow-container {
   position: relative;
   width: 100%;
-  max-width: 500px;
-  margin: auto;
+  max-width: 450px;
   border-radius: 20px;
   overflow: hidden;
   padding: 2px;
 }
 
+/* Glowing animated border */
 .glow-border {
   position: absolute;
   top: -2px;
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #f00, #0ff, #0f0, #00f, #f0f, #ff0, #f00);
+  background: linear-gradient(
+    45deg,
+    #f00,
+    #0ff,
+    #0f0,
+    #00f,
+    #f0f,
+    #ff0,
+    #f00
+  );
   background-size: 400%;
   animation: animateGlow 8s linear infinite;
   z-index: 1;
@@ -157,6 +177,7 @@ html, body {
   border-radius: 20px;
 }
 
+/* Animation for glow effect */
 @keyframes animateGlow {
   0% {
     background-position: 0% 50%;
@@ -169,6 +190,7 @@ html, body {
   }
 }
 
+/* Inner form content box */
 .glow-content {
   position: relative;
   z-index: 2;
