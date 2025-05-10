@@ -41,7 +41,6 @@ const SignIn = () => {
 
   return (
     <div className="center-wrapper">
-      <h1 className="b text-danger text-center mb-4">Verizon Media</h1>
       <div className="glow-container">
         <div className="glow-border"></div>
         <div className="glow-content">
