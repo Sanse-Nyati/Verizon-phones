@@ -143,7 +143,17 @@ html, body {
   background-color: #0f0f0f; /* dark background for contrast */
 }
 
-/* Container for glowing effect */
+/* Center wrapper for sign in and sign up */
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #0f0f0f; /* dark background */
+}
+
+/* Glowing animated border container */
 .glow-container {
   position: relative;
   width: 100%;
@@ -153,7 +163,7 @@ html, body {
   padding: 2px;
 }
 
-/* Glowing animated border */
+/* Border animation */
 .glow-border {
   position: absolute;
   top: -2px;
@@ -177,7 +187,18 @@ html, body {
   border-radius: 20px;
 }
 
-/* Animation for glow effect */
+/* Glowing content box */
+.glow-content {
+  position: relative;
+  z-index: 2;
+  background: #1c1c1c;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* Glow animation keyframes */
 @keyframes animateGlow {
   0% {
     background-position: 0% 50%;
@@ -188,15 +209,4 @@ html, body {
   100% {
     background-position: 0% 50%;
   }
-}
-
-/* Inner form content box */
-.glow-content {
-  position: relative;
-  z-index: 2;
-  background: #1c1c1c;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
-  color: white;
 }
