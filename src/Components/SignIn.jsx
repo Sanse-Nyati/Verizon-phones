@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignIn.css"; // Make sure this path is correct in your project
 
 const SignIn = () => {
   let [username, setUsername] = useState("");
