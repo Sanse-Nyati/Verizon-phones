@@ -1,67 +1,101 @@
 import axios from "axios";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // added useNavigate
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-    let [username, setUsername] = useState("");
-    let [email, setEmail] = useState("");
-    let [phone, setPhone] = useState("");
-    let [password, setPassword] = useState("");
-    let [loading, setLoading] = useState("");
-    let [success, setSuccess] = useState("");
-    let [error, setError] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
-    const navigate = useNavigate(); // create navigate
+  const navigate = useNavigate();
 
-    const submit = async (e) => {
-        e.preventDefault();
-        try {
-            setLoading("Please Wait...");
-            setSuccess("");
-            setError("");
-            setUsername("");
-            setPhone("");
-            setEmail("");
-            setPassword("");
+  const submit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading("Please Wait...");
+      setSuccess("");
+      setError("");
 
-            const data = new FormData();
-            data.append("username", username);
-            data.append("email", email);
-            data.append("phone", phone);
-            data.append("password", password);
+      const data = new FormData();
+      data.append("username", username);
+      data.append("email", email);
+      data.append("phone", phone);
+      data.append("password", password);
 
-            const response = await axios.post("https://Sanse.pythonanywhere.com/api/signup", data);
-            setLoading("");
-            setSuccess(response.data.message);
+      const response = await axios.post(
+        "https://Sanse.pythonanywhere.com/api/signup",
+        data
+      );
 
-            // navigate to Sign In page after successful signup
-            navigate("/");
-        } catch (error) {
-            setLoading("");
-            setError("Something Went Wrong");
-        }
-    };
+      setLoading("");
+      setSuccess(response.data.message);
 
-    return ( 
-        <div className="row justify-content-center mt-4">
-            <h1 className="b text-danger">Verizon Media</h1>
-            <b className="text-primary">{loading}</b>
-            <b className="text-success">{success}</b>    
-            <b className="text-danger">{error}</b>
+      // Redirect to sign in after 2s delay
+      setTimeout(() => navigate("/"), 2000);
+    } catch (error) {
+      setLoading("");
+      setError("Something Went Wrong");
+    }
+  };
 
-            <div className="col-md-6 card shadow p-4">
-                <h2 className="text-primary">Sign Up</h2>
-                <form onSubmit={submit}>
-                    <input type="text" className="form-control" placeholder="Enter Your UserName" required value={username} onChange={(e) => setUsername(e.target.value)} /> <br />
-                    <input type="email" className="form-control" placeholder="Enter Email" required value={email} onChange={(e) => setEmail(e.target.value)} /> <br />
-                    <input type="tel" className="form-control" placeholder="Enter Phone Number" required value={phone} onChange={(e) => setPhone(e.target.value)} /> <br />
-                    <input type="password" className="form-control" placeholder="Enter Your PassWord" required value={password} onChange={(e) => setPassword(e.target.value)} /><br />
-                    <button type="submit" className="btn btn-danger">Sign Up</button>
-                </form>
-                <p>Already Have An Account? <Link to="/">Sign In</Link></p>
-            </div>
+  return (
+    <div className="center-wrapper">
+      <h1 className="b text-danger text-center mb-4">Verizon Media</h1>
+      <div className="glow-container">
+        <div className="glow-border"></div>
+        <div className="glow-content">
+          <h2 className="text-primary">Sign Up</h2>
+          <b className="text-warning">{loading}</b>
+          <b className="text-success">{success}</b>
+          <b className="text-danger">{error}</b>
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              className="form-control my-2"
+              placeholder="Enter Username"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="email"
+              className="form-control my-2"
+              placeholder="Enter Email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="tel"
+              className="form-control my-2"
+              placeholder="Enter Phone"
+              required
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+            <input
+              type="password"
+              className="form-control my-2"
+              placeholder="Enter Password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button type="submit" className="btn btn-danger w-100 my-2">
+              Sign Up
+            </button>
+          </form>
+          <p className="text-light">
+            Already Have An Account? <Link to="/">Sign In</Link>
+          </p>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default SignUp;
