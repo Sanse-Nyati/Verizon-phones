@@ -84,7 +84,7 @@ const SignUp = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" className="btn btn-danger w-100 my-2">
+            <button type="submit" className="btn btn-primary w-100 my-2">
               Sign Up
             </button>
           </form>
