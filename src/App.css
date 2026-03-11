@@ -210,3 +210,141 @@ html, body {
     background-position: 0% 50%;
   }
 }
+:root {
+  --gold: #d4af37;
+  --dark: #0a0a0a;
+  --text-dim: #a0a0a0;
+}
+
+.premium-page {
+  display: flex;
+  height: 100vh;
+  background: var(--dark);
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* LEFT SIDE - IMAGE */
+.visual-side {
+  flex: 1.4;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.2)), 
+              url('/public/images/BrandSnapshot.webp');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  padding: 50px;
+  border-radius: 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* RIGHT SIDE - FORM */
+.form-side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d0d0d;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 20px;
+}
+
+.brand-logo {
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+.status-msg { font-size: 0.9rem; margin-bottom: 15px; }
+.loading { color: var(--gold); }
+.error { color: #ff4d4d; }
+
+/* INPUT STYLING */
+.input-field {
+  position: relative;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.input-field label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: var(--text-dim);
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input-field input:focus ~ label, 
+.input-field input:valid ~ label {
+  top: -15px;
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+
+.gold-btn {
+  width: 100%;
+  padding: 15px;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gold-btn:hover {
+  background: var(--gold);
+  color: black;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.footer-text { margin-top: 25px; color: var(--text-dim); font-size: 0.9rem; }
+.footer-text a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 1000px) {
+  .visual-side { display: none; }
+}
+
+
+/* Specific Success Message Styling */
+.status-msg.success {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Different background for Signup side */
+.signup-bg {
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), 
+              url('/public/images/verizon.webp');
+  background-size: cover;
+  background-position: center;
+}
+
