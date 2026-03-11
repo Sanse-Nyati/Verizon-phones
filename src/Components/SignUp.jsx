@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -10,13 +11,12 @@ const SignUp = () => {
   const [loading, setLoading] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
     try {
-      setLoading("Please Wait...");
+      setLoading("Creating your account...");
       setSuccess("");
       setError("");
 
@@ -32,64 +32,87 @@ const SignUp = () => {
       );
 
       setLoading("");
-      setSuccess(response.data.message);
-
-      // Redirect to sign in after 2s delay
+      setSuccess(response.data.message || "Registration Successful!");
+      
+      // Premium redirect delay
       setTimeout(() => navigate("/"), 2000);
     } catch (error) {
       setLoading("");
-      setError("Something Went Wrong");
+      setError("Registration failed. Please check your details.");
     }
   };
 
   return (
-    <div className="center-wrapper">
-      <div className="glow-container">
-        <div className="glow-border"></div>
-        <div className="glow-content">
-          <h2 className="text-primary">Sign Up</h2>
-          <b className="text-warning">{loading}</b>
-          <b className="text-success">{success}</b>
-          <b className="text-danger">{error}</b>
+    <div className="premium-page">
+      {/* Visual Branding Side */}
+      <div className="visual-side signup-bg">
+        <div className="glass-content">
+          <span className="badge">Join the Elite</span>
+          <h1>Innovation Awaits.</h1>
+          <p>Register to unlock exclusive pricing and first-look access to the latest flagships.</p>
+        </div>
+      </div>
+
+      {/* Form Side */}
+      <div className="form-side">
+        <div className="login-card">
+          <div className="brand-logo">PHONEX</div>
+          <h2>Create Account</h2>
+          <p className="subtitle">Enter your details to join our inner circle</p>
+
+          {/* Status Indicators */}
+          {loading && <p className="status-msg loading">{loading}</p>}
+          {success && <p className="status-msg success">{success}</p>}
+          {error && <p className="status-msg error">{error}</p>}
+
           <form onSubmit={submit}>
-            <input
-              type="text"
-              className="form-control my-2"
-              placeholder="Enter Username"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="email"
-              className="form-control my-2"
-              placeholder="Enter Email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="tel"
-              className="form-control my-2"
-              placeholder="Enter Phone"
-              required
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <input
-              type="password"
-              className="form-control my-2"
-              placeholder="Enter Password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit" className="btn btn-primary w-100 my-2">
-              Sign Up
+            <div className="input-field">
+              <input 
+                type="text" 
+                required 
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)} 
+              />
+              <label>Username</label>
+            </div>
+
+            <div className="input-field">
+              <input 
+                type="email" 
+                required 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+              />
+              <label>Email Address</label>
+            </div>
+
+            <div className="input-field">
+              <input 
+                type="tel" 
+                required 
+                value={phone} 
+                onChange={(e) => setPhone(e.target.value)} 
+              />
+              <label>Phone Number</label>
+            </div>
+
+            <div className="input-field">
+              <input 
+                type="password" 
+                required 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+              />
+              <label>Password</label>
+            </div>
+
+            <button type="submit" className="gold-btn">
+              {loading ? "Registering..." : "Sign Up"}
             </button>
           </form>
-          <p className="text-light">
-            Already Have An Account? <Link to="/">Sign In</Link>
+
+          <p className="footer-text">
+            Already have an account? <Link to="/">Sign In Here</Link>
           </p>
         </div>
       </div>
