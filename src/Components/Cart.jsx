@@ -41,7 +41,8 @@ const Cart = () => {
       data.append("phone", phone);
 
       // Simulate payment request
-      const response = await axios.post("https://Sanse.pythonanywhere.com/api/mpesa_payment", data);
+    await axios.post("https://Sanse.pythonanywhere.com/api/mpesa_payment", data);
+
 
       setLoading("");
 
