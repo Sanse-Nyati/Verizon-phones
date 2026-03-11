@@ -3,20 +3,18 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  let [username, setUsername] = useState("");
-  let [password, setPassword] = useState("");
-
-  let [loading, setLoading] = useState("");
-  let [error, setError] = useState("");
-
-  let navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
     try {
       setError("");
-      setLoading("Please Wait...");
-
+      setLoading("Authenticating...");
+      
       const data = new FormData();
       data.append("username", username);
       data.append("password", password);
@@ -35,39 +33,60 @@ const SignIn = () => {
       }
     } catch (error) {
       setLoading("");
-      setError("Something Went Wrong");
+      setError("Network error. Please try again.");
     }
   };
 
   return (
-    <div className="center-wrapper">
-      <div className="glow-container">
-        <div className="glow-border"></div>
-        <div className="glow-content">
-          <h2 className="text-primary">Sign In</h2>
-          <b className="text-warning">{loading}</b>
-          <b className="text-danger">{error}</b>
+    <div className="premium-page">
+      {/* Visual Section */}
+      <div className="visual-side">
+        <div className="glass-content">
+          <span className="badge">Exclusive Collection</span>
+          <h1>The New Standard of Mobile.</h1>
+          <p>Sign in to explore our latest flagship releases.</p>
+        </div>
+      </div>
+
+      {/* Form Section */}
+      <div className="form-side">
+        <div className="login-card">
+          <div className="brand-logo">PHONEX</div>
+          <h2>Welcome Back</h2>
+          <p className="subtitle">Please enter your credentials</p>
+
+          {/* Feedback Messages */}
+          {loading && <p className="status-msg loading">{loading}</p>}
+          {error && <p className="status-msg error">{error}</p>}
+
           <form onSubmit={submit}>
-            <input
-              type="text"
-              className="form-control my-2"
-              required
-              placeholder="Enter Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="password"
-              className="form-control my-2"
-              required
-              placeholder="Enter Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button className="btn btn-primary w-100 my-2">Sign In</button>
+            <div className="input-field">
+              <input 
+                type="text" 
+                required 
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)} 
+              />
+              <label>Username</label>
+            </div>
+
+            <div className="input-field">
+              <input 
+                type="password" 
+                required 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+              />
+              <label>Password</label>
+            </div>
+
+            <button type="submit" className="gold-btn">
+              {loading ? "Please Wait..." : "Enter Store"}
+            </button>
           </form>
-          <p className="text-light">
-            Don't Have An Account? <Link to="/signup">Register here</Link>
+
+          <p className="footer-text">
+            Don't have an account? <Link to="/signup">Register Here</Link>
           </p>
         </div>
       </div>
